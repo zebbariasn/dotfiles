@@ -1,0 +1,45 @@
+# Minimal prompt in Matte Black colors: folder, git branch, git status
+# Palette from the theme / nvim aether colors
+add_newline = true
+command_timeout = 200
+format = "$directory$git_branch$git_status$character"
+palette = "matte_black"
+
+[palettes.matte_black]
+accent = "#e68e0d"
+amber = "#FFC107"
+muted = "#8a8a8d"
+error = "#EE3333"
+
+[character]
+success_symbol = "[❯](bold accent)"
+error_symbol = "[❯](bold error)"
+vimcmd_symbol = "[❮](bold muted)"
+
+[directory]
+format = "[ $path]($style)[$read_only]($read_only_style) "
+style = "bold accent"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+read_only = " "
+read_only_style = "error"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = " "
+style = "muted"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "amber"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+conflicted = "="
+untracked = "?"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+stashed = ""
