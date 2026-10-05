@@ -10,13 +10,6 @@ return {
     },
   },
   {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      table.insert(opts.ensure_installed, "roslyn")
-    end,
-  },
-  {
     "seblyng/roslyn.nvim",
     ft = "cs",
     dependencies = { "williamboman/mason.nvim" },

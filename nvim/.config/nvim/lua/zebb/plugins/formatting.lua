@@ -5,22 +5,9 @@ return {
     local conform = require("conform")
 
     conform.setup({
-      formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
-        liquid = { "prettier" },
+      formatters_by_ft = vim.tbl_extend("force", {
         lua = { "stylua" },
-        python = { "isort", "black" },
-      },
+      }, require("zebb.profile").formatters),
       format_on_save = {
         lsp_fallback = true,
         async = false,

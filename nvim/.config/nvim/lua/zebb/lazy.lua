@@ -11,7 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "zebb.plugins" }, { import = "zebb.plugins.lsp" } }, {
+local profile = require("zebb.profile")
+
+local spec = { { import = "zebb.plugins" }, { import = "zebb.plugins.lsp" } }
+if profile.plugins then
+  table.insert(spec, { import = profile.plugins })
+end
+
+require("lazy").setup(spec, {
   checker = {
     enabled = true,
     notify = false,

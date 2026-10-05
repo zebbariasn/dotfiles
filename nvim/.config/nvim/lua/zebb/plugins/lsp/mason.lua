@@ -1,21 +1,13 @@
+local profile = require("zebb.profile")
+
 return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      -- list of servers for mason to install
-      ensure_installed = {
-        "ts_ls",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
+      -- common servers + the active profile's (see lua/zebb/profiles/)
+      ensure_installed = vim.list_extend({
         "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
-        "pyright",
-        "eslint",
-      },
+      }, profile.lsp),
     },
     dependencies = {
       {
@@ -36,14 +28,9 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
-      ensure_installed = {
-        "prettier", -- prettier formatter
+      ensure_installed = vim.list_extend({
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint",
-        "eslint_d",
-      },
+      }, profile.tools),
     },
     dependencies = {
       "williamboman/mason.nvim",
