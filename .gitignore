@@ -2,3 +2,5 @@
 *.swo
 .DS_Store
 lazy-lock.json
+# nushell runtime state (the whole config dir is stowed as one symlink)
+nushell/.config/nushell/history.*
