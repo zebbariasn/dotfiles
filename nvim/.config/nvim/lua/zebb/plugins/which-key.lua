@@ -14,6 +14,7 @@ return {
       { "<leader>l", group = "Lint / LazyGit" },
       { "<leader>m", group = "Format" },
       { "<leader>n", group = "No highlight" },
+      { "<leader>q", group = "Database (dadbod)" },
       { "<leader>r", group = "Rename / Replace / Restart LSP" },
       { "<leader>s", group = "Splits (windows)" },
       { "<leader>t", group = "Tabs" },
